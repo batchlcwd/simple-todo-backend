@@ -16,7 +16,7 @@ pipeline {
         stage("Test") {
             steps {
                 sh '''
-                chmod +x ./mvwn
+                chmod +x ./mvnw
                 ./mvnw test
                 '''
             }
