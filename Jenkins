@@ -12,12 +12,14 @@ pipeline{
   }
 
 stages{
-    steps('Checkout'){
+    stage{
+
+setps('Checkout'){
 
       checkout scm 
       echo 'checkout success'
 
-
+}
 }
 }
 
