@@ -1,27 +1,20 @@
+pipeline {
 
-pipeline{
+    agent any
 
-  agent any
+    environment {
+        DOCKER_IMAGE = "batchlcwd/todo-backend"
+        DOCKER_TAG = "${BUILD_NUMBER}"
+    }
 
-  environment{
+    stages {
 
-    DOCKER_IMAGE="batchlcwd/todo-backend"
+        stage('Checkout') {
+            steps {
+                checkout scm
+                echo 'Checkout successful'
+            }
+        }
 
-    DOCKER_TAG="${BUILD_NUMBER}"
-
-  }
-
-stages{
-    stage('Checkout'){
-
-setps{
-
-      checkout scm 
-      echo 'checkout success'
-
-}
-}
-}
-
-
+    }
 }
