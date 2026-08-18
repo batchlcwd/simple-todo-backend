@@ -12,15 +12,15 @@ pipeline {
                 echo 'Testing from github webhook...'
                 echo "Build number ${BUILD_NUMBER}"
             }
-            stage("Test") {
-                steps {
-                    sh './mvnw test'
-                }
+        }
+        stage("Test") {
+            steps {
+                sh './mvnw test'
             }
-            stage("Build") {
-                steps {
-                    sh './mvnw clean package -DskipTests'
-                }
+        }
+        stage("Build") {
+            steps {
+                sh './mvnw clean package -DskipTests'
             }
         }
     }
