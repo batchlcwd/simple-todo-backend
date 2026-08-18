@@ -1,14 +1,10 @@
 pipeline {
-
     agent any
-
     environment {
         DOCKER_IMAGE = "batchlcwd/todo-backend"
         DOCKER_TAG = "${BUILD_NUMBER}"
     }
-
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -16,7 +12,16 @@ pipeline {
                 echo 'Testing from github webhook...'
                 echo "Build number ${BUILD_NUMBER}"
             }
+            stage("Test") {
+                steps {
+                    sh './mvnw test'
+                }
+            }
+            stage("Build") {
+                steps {
+                    sh './mvnw clean package -DskipTests'
+                }
+            }
         }
-
     }
 }
