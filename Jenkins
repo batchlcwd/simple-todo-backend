@@ -15,7 +15,10 @@ pipeline {
         }
         stage("Test") {
             steps {
-                sh './mvnw test'
+                sh '''
+                chmod +x ./mvwn
+                ./mvnw test
+                '''
             }
         }
         stage("Build") {
