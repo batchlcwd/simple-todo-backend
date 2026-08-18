@@ -14,7 +14,7 @@ pipeline {
                 checkout scm
                 echo 'Checkout successful'
                 echo 'Testing from github webhook...'
-                echo 'Build number ${BUILD_NUMBER}'
+                echo 'Build number "${BUILD_NUMBER}"'
             }
         }
 
