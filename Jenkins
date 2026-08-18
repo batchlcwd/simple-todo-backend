@@ -13,6 +13,7 @@ pipeline {
             steps {
                 checkout scm
                 echo 'Checkout successful'
+                echo 'Testing from github webhook'
             }
         }
 
