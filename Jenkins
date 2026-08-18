@@ -11,8 +11,8 @@ pipeline{
 
   }
 
-stages('Checkout'){
-    steps{
+stages{
+    steps('Checkout'){
 
       checkout scm 
       echo 'checkout success'
